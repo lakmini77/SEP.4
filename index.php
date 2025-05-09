@@ -95,15 +95,18 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
-       <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="child-gallery-sponsored.php">Child Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="program.php">Program</a></li>
                 <li class="nav-item"><a class="nav-link" href="photo-gallery.php">Photo Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="feedback-form.php">Feedback</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact-us.php">Contact</a></li>
+                <li class="nav-item"><a class="btn btn-outline-light btn-custom mx-2" href="login.php">Login</a></li>
                 <li class="nav-item"><a class="btn btn-warning btn-custom" href="donation.php">Donate</a></li>
             </ul>
+        </div>
     </div>
 </nav>
 
@@ -113,24 +116,16 @@
     <div class="hero-content">
         <h1>Welcome to Orphan Care System</h1>
         <p>Your contribution can change lives</p>
-        <a href="#" class="btn btn-success btn-lg btn-custom">Make a Donation</a>
+        <a href="donation.php" class="btn btn-success btn-lg btn-custom">Make a Donation</a>
     </div>
 </div>
 
 <!-- Content Section -->
 <div class="container content-section">
     <h2>About Us</h2>
-    <p>Orphan Care  is a non-profit organization dedicated to the care and development of underprivileged children.</p>
+    <p>Orphan Care is a non-profit organization dedicated to the care and development of underprivileged children.</p>
 
-    <!-- Gallery -->
-    <div class="row image-gallery">
-        <div class="col-md-6">
-            <img src="https://source.unsplash.com/600x400/?children,education" alt="Children Image">
-        </div>
-        <div class="col-md-6">
-            <img src="https://source.unsplash.com/600x400/?children,school" alt="Children Image">
-        </div>
-    </div>
+   
 </div>
 
 <!-- Footer -->

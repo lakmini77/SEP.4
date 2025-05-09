@@ -166,11 +166,11 @@
               <h5>Select the Program to Sponsor</h5>
               <div class="form-check">
                 <input type="radio" class="form-check-input" id="aakar" name="program" value="Aakar" required>
-                <label class="form-check-label" for="aakar">Program 1: Aakar</label>
+                <label class="form-check-label" for="aakar">Program 1</label>
               </div>
               <div class="form-check">
                 <input type="radio" class="form-check-input" id="ahar" name="program" value="Ahar" required>
-                <label class="form-check-label" for="ahar">Program 2: Ahar</label>
+                <label class="form-check-label" for="ahar">Program 2</label>
               </div>
             </div>
 

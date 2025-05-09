@@ -1,4 +1,5 @@
 <?php include './components/header.php'; ?>
+<?php include './components/top-menu.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -104,7 +105,7 @@
 </head>
 <body>
 
-<?php include './components/top-menu.php'; ?>
+
 
 <div class="container py-5">
     <h2 class="text-center gallery-title mb-4">🌟 Sponsored Children Gallery</h2>
