@@ -24,19 +24,40 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .top-menu {
-            height: 40px;
+        .navbar {
+            height: 50px;
             background: rgba(255, 255, 255, 0.1);
             display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 0 20px;
             font-size: 0.95rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #ffd700;
+        }
+
+        .navbar-left {
+            font-weight: 500;
+        }
+
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
         .dashboard-container {
             display: flex;
-            height: calc(100% - 100px);
+            height: calc(100% - 110px); /* header (60) + navbar (50) */
         }
 
         .side-menu {
@@ -93,9 +114,16 @@
         Admin Panel
     </div>
 
-    <!-- Top Menu -->
-    <div class="top-menu">
-        Welcome, Admin | Notifications | Settings | Logout
+    <!-- Top Navbar -->
+    <div class="navbar">
+        <div class="navbar-left">
+            Welcome, Admin
+        </div>
+        <div class="navbar-right">
+            <a href="">Home</a>
+             <!--  <a href="index.php">Settings</a>-->
+            <a href="logout.php">Logout</a>
+        </div>
     </div>
 
     <!-- Main Layout -->
@@ -111,7 +139,7 @@
             ?>
             <a class="<?= active('index.php') ?>" href="index.php">Dashboard</a>
             <a class="<?= active('children.php') ?>" href="children.php">Children</a>
-            <a class="<?= active('sponsorer.php') ?>" href="sponsorer.php">Sponsorers</a>
+         
             <a class="<?= active('donators.php') ?>" href="donators.php">Donators</a>
             <a class="<?= active('gift-sent.php') ?>" href="gift-sent.php">Gift Sent</a>
             <a class="<?= active('programs.php') ?>" href="programs.php">Programs</a>
