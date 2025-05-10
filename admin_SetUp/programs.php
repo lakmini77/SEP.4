@@ -163,8 +163,6 @@ if ($conn->connect_error) {
             <a class="<?= active('feedback.php') ?>" href="feedback.php">Feedback</a>
         </div>
 
-
-            
             <!-- right content -->
             <div class="twelve wide column">
                 <h1>Create New Programme Details</h1>

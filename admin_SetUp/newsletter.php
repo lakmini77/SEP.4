@@ -35,7 +35,6 @@
 
                 ?>
 
-
                 <form action="<?php $_PHP_SELF ?>" method="post" class="ui form">
                     <div class="seven wide field">
                         <label>Issue</label>

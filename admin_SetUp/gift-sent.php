@@ -163,21 +163,9 @@ if ($conn->connect_error) {
             <a class="<?= active('feedback.php') ?>" href="feedback.php">Feedback</a>
         </div>
 
-
-
-
-
-
-
-
-
-
-
             <!-- right content -->
             <div class="twelve wide column">
                 <h1>Gift Sent</h1>
-
-
 
                 <table class="ui celled table">
                     <thead>
