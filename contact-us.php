@@ -1,13 +1,9 @@
 <?php include './components/header.php'; ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sponsored Children - Creative Gallery</title>
+    <title>Sponsored Children - Hope Bridge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap + Icons -->
@@ -16,109 +12,155 @@
 
     <style>
         body {
-            background: linear-gradient(to right, #e0ecf8, #f9fcff);
+            background: #f8fbff;
             font-family: 'Segoe UI', sans-serif;
         }
 
-        .gallery-title {
+        .section-heading {
+            font-size: 2rem;
             font-weight: 600;
-            color: #17375e;
+            color: #0d6efd;
+            margin-bottom: 1rem;
         }
 
-        .card-container {
-            perspective: 1000px;
+        .org-section {
+            background: linear-gradient(to right, #f2f8ff, #e9f2fb);
+            padding: 60px 0;
         }
 
-        .card-flip {
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            position: relative;
-            height: 320px;
+        .org-icon {
+            font-size: 3rem;
+            color: #dc3545;
         }
 
-        .card-container:hover .card-flip {
-            transform: rotateY(180deg);
+        .org-details p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 0.5rem;
         }
 
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+        .gallery-section {
+            padding: 60px 0;
+        }
+
+        .child-card {
+            transition: all 0.3s ease;
+            border: none;
             border-radius: 16px;
-            backface-visibility: hidden;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .card-front {
-            background-color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-back {
-            background: rgba(255,255,255,0.85);
-            backdrop-filter: blur(8px);
-            transform: rotateY(180deg);
-            padding: 20px;
+        .child-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
         }
 
         .child-img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+            height: 250px;
             object-fit: cover;
-            border: 4px solid #e2eafc;
-            margin-top: 10px;
+            width: 100%;
         }
 
         .child-name {
-            font-size: 1.2rem;
             font-weight: 600;
+            font-size: 1.2rem;
             margin-top: 10px;
         }
 
-        .info-line {
-            font-size: 0.9rem;
-            color: #333;
-            margin: 5px 0;
+        .footer-links a {
+            text-decoration: none;
+            color: #6c757d;
         }
 
-        .badge {
-            font-size: 0.75rem;
-        }
-
-        .sponsor-title {
-            font-weight: 600;
+        .footer-links a:hover {
             color: #0d6efd;
         }
-
-        .tab-custom .nav-link.active {
-            background-color: #0d6efd;
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .tab-custom .nav-link {
-            color: #0d6efd;
-        }
-
     </style>
 </head>
 <body>
-    <div class="ui container">
+    <?php include './components/top-menu.php'; ?>
 
-        <!-- Top Navigation Bar -->
-        <?php include './components/top-menu.php'; ?>
-
-        <!-- BODY Content -->
-        <div class="ui grid">
-            
-            
-          
-            
+    <!-- Organization Introduction -->
+    <section class="org-section text-dark">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-2 text-center">
+                    <i class="bi bi-heart-fill org-icon"></i>
+                </div>
+                <div class="col-lg-10 org-details">
+                    <h2 class="section-heading">Hope Bridge Organization</h2>
+                    <p>Hope Bridge is a non-profit organization committed to transforming lives through compassion, education, and opportunity. Our mission is to connect kind-hearted sponsors with deserving children, empowering the next generation with hope and dignity.</p>
+                    <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>Address:</strong> No. 45, Sunshine Road,Kurunegala , Sri Lanka</p>
+                    <p><i class="bi bi-envelope-fill text-primary"></i> <strong>Email:</strong> <a href="mailto:contact@hopebridge.org">contact@hopebridge.org</a></p>
+                    <p><i class="bi bi-telephone-fill text-primary"></i> <strong>Phone:</strong> +94 112 345 678</p>
+                    <p><i class="bi bi-globe text-primary"></i> <strong>Website:</strong> <a href="#">www.hopebridgenwpedu.lk</a></p>
+                </div>
+            </div>
         </div>
+    </section>
 
-    </div>
-    
-<?php include './components/footer.php'; ?>
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-heading">Meet Our Sponsored Children</h2>
+                <p class="text-muted">Each child is a story of hope. Get to know them and join hands in their journey.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Sample Child Card with Default Image -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card child-card">
+                        <img src="img/defaultimg.png" alt="Ayesha" class="child-img">
+                        <div class="card-body text-center">
+                            <div class="child-name">Ayesha</div>
+                            <p class="text-muted mb-1">Age: 9 | Kandy</p>
+                            <span class="badge bg-success">Sponsored</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add More Child Cards -->
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card child-card">
+                        <img src="img/defaultimg.png" alt="Raj" class="child-img">
+                        <div class="card-body text-center">
+                            <div class="child-name">Raj</div>
+                            <p class="text-muted mb-1">Age: 12 | Colombo</p>
+                            <span class="badge bg-success">Sponsored</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card child-card">
+                        <img src="img/defaultimg.png" alt="Anjali" class="child-img">
+                        <div class="card-body text-center">
+                            <div class="child-name">Anjali</div>
+                            <p class="text-muted mb-1">Age: 8 | Galle</p>
+                            <span class="badge bg-success">Sponsored</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card child-card">
+                        <img src="img/defaultimg.png" alt="Nimal" class="child-img">
+                        <div class="card-body text-center">
+                            <div class="child-name">Nimal</div>
+                            <p class="text-muted mb-1">Age: 10 | Kandy</p>
+                            <span class="badge bg-success">Sponsored</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <?php include './components/footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
