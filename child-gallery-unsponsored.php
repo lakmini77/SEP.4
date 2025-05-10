@@ -12,106 +12,107 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-  <style>
-    body {
-      background: linear-gradient(to right, #eef3f9, #f9fcff);
-      font-family: 'Segoe UI', sans-serif;
-    }
+ <style>
+  body {
+    background-color: #ffffff; /* White background */
+    font-family: 'Segoe UI', sans-serif;
+  }
 
-    .gallery-title {
-      font-weight: 600;
-      color: #1e3a5f;
-    }
+  .gallery-title {
+    font-weight: 600;
+    color: #1e3a5f;
+  }
 
-    .card-container {
-      perspective: 1000px;
-    }
+  .card-container {
+    perspective: 1000px;
+  }
 
-    .card-flip {
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      position: relative;
-      height: 320px;
-    }
+  .card-flip {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+    height: 320px;
+  }
 
-    .card-container:hover .card-flip {
-      transform: rotateY(180deg);
-    }
+  .card-container:hover .card-flip {
+    transform: rotateY(180deg);
+  }
 
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 16px;
-      backface-visibility: hidden;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    }
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
 
-    .card-front {
-      background-color: #ffffff;
-      padding: 20px;
-      text-align: center;
-    }
+  .card-front {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
 
-    .card-back {
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      transform: rotateY(180deg);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  .card-back {
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(8px);
+    transform: rotateY(180deg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .child-img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #d0e2ff;
-      margin-top: 10px;
-    }
+  .child-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #d0e2ff;
+    margin-top: 10px;
+  }
 
-    .child-name {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 10px;
-    }
+  .child-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 10px;
+  }
 
-    .info-line {
-      font-size: 0.9rem;
-      color: #444;
-      margin: 5px 0;
-    }
+  .info-line {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 5px 0;
+  }
 
-    .action-btn {
-      margin: 5px;
-      font-size: 0.85rem;
-    }
+  .action-btn {
+    margin: 5px;
+    font-size: 0.85rem;
+  }
 
-    .tab-custom .nav-link.active {
-      background-color: #0d6efd;
-      color: #fff;
-      font-weight: 500;
-    }
+  .tab-custom .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff;
+    font-weight: 500;
+  }
 
-    .tab-custom .nav-link {
-      color: #0d6efd;
-    }
-  </style>
+  .tab-custom .nav-link {
+    color: #0d6efd;
+  }
+</style>
+
 </head>
 <body>
 
 
 
 <div class="container py-5">
-  <h2 class="text-center gallery-title mb-4">🧒 Children Awaiting Sponsorship</h2>
+  <h2 class="text-center gallery-title mb-4">Children Awaiting Sponsorship</h2>
 
   <ul class="nav nav-tabs justify-content-center mb-4 tab-custom">
     <li class="nav-item">
-      <a class="nav-link" href="child-gallery-sponsored.php">Sponsored</a>
+      <a class="nav-link active" href="child-gallery-sponsored.php">Sponsored</a>
     </li>
     <li class="nav-item">
       <a class="nav-link active" href="child-gallery-unsponsored.php">Not Sponsored</a>
