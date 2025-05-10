@@ -21,16 +21,17 @@
       padding: 50px 0;
     }
 
-    .donation-card {
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-
     .donation-form-header {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       color: #1d3557;
+    }
+
+    .donation-card {
+      border-radius: 15px;
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      padding: 40px;
     }
 
     .form-label {
@@ -75,44 +76,43 @@
 
     .form-section h5 {
       color: #1d3557;
-      font-size: 1.2rem;
-    }
-
-    .form-section .form-control {
-      background-color: #fafafa;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
     }
 
     .form-check-label {
       font-weight: 500;
     }
 
-    .card-body {
-      padding: 3rem;
-    }
-
-    .donation-header {
-      margin-bottom: 30px;
-    }
-
-    .card-body .btn {
-      width: 48%;
-    }
-
     @media (max-width: 768px) {
-      .donation-card {
-        margin-top: 30px;
-      }
-
       .donation-header h1 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
       }
 
       .donation-header p {
         font-size: 0.9rem;
       }
 
-      .card-body {
-        padding: 1.5rem;
+      .form-section h5 {
+        font-size: 1.1rem;
+      }
+
+      .form-control {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .donation-container {
+        padding: 20px 10px;
+      }
+
+      .donation-form-header {
+        font-size: 1.5rem;
+      }
+
+      .form-control {
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -131,92 +131,94 @@
 
   <!-- Donation Form -->
   <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
-      <div class="card donation-card">
-        <div class="card-body">
-          <?php
-          if(isset($_POST['submit_donation'])) {
-            $program = $_POST['program'];
-            $amount = $_POST['amount'];
-            $checkno = $_POST['check'];
-            $bank_name = $_POST['bank_name'];
-            $place = $_POST['place'];
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $address = $_POST['address'];
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <div class="donation-card">
+        <?php
+        if(isset($_POST['submit_donation'])) {
+          $program = $_POST['program'];
+          $amount = $_POST['amount'];
+          $checkno = $_POST['check'];
+          $bank_name = $_POST['bank_name'];
+          $place = $_POST['place'];
+          $name = $_POST['name'];
+          $email = $_POST['email'];
+          $phone = $_POST['phone'];
+          $address = $_POST['address'];
 
-            $sql = "INSERT INTO donation (program, amount, checkno, bank_name, place, d_name, email, phone, d_address) 
-                    VALUES ('$program', '$amount', '$checkno', '$bank_name', '$place', '$name', '$email', '$phone', '$address')";
+          $sql = "INSERT INTO donation (program, amount, checkno, bank_name, place, d_name, email, phone, d_address) 
+                  VALUES ('$program', '$amount', '$checkno', '$bank_name', '$place', '$name', '$email', '$phone', '$address')";
 
-            if ($conn->query($sql) === TRUE) {
-                echo "<script> alert('Donation form submitted successfully!'); </script>";
-            } else {
-                echo "<script> alert('Error submitting the form. Please try again.'); </script>";
-            }
-
-            $conn->close();
+          if ($conn->query($sql) === TRUE) {
+              echo "<script> alert('Donation form submitted successfully!'); </script>";
+          } else {
+              echo "<script> alert('Error submitting the form. Please try again.'); </script>";
           }
-          ?>
 
-          <form action="<?php $_PHP_SELF ?>" method="post">
+          $conn->close();
+        }
+        ?>
 
-            <!-- Program Selection -->
-            <div class="form-section">
-              <h5>Select the Program to Sponsor</h5>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="aakar" name="program" value="Aakar" required>
-                <label class="form-check-label" for="aakar">Program 1</label>
-              </div>
-              <div class="form-check">
-                <input type="radio" class="form-check-input" id="ahar" name="program" value="Ahar" required>
-                <label class="form-check-label" for="ahar">Program 2</label>
-              </div>
+        <form action="<?php $_PHP_SELF ?>" method="post">
+
+          <!-- Program Selection -->
+          <div class="form-section">
+            <h5>Select the Program to Sponsor</h5>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="aakar" name="program" value="Aakar" required>
+              <label class="form-check-label" for="aakar">For School Materials</label>
             </div>
-
-            <!-- Donation Amount -->
-            <div class="form-section">
-              <label for="amount" class="form-label">Amount</label>
-              <input type="number" class="form-control" name="amount" placeholder="Amount" min="1" required>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" id="ahar" name="program" value="Ahar" required>
+              <label class="form-check-label" for="ahar">New Year Celebration</label>
             </div>
-
-            <!-- Check and DD Details -->
-            <div class="form-section">
-              <h5>Check and Demand Draft</h5>
-              <label for="check" class="form-label">Check/DD No.</label>
-              <input type="text" class="form-control" name="check" placeholder="Check / DD No." required>
-
-              <label for="bank_name" class="form-label mt-3">Bank Name</label>
-              <input type="text" class="form-control" name="bank_name" placeholder="Bank Name" required>
-
-              <label for="place" class="form-label mt-3">Place</label>
-              <input type="text" class="form-control" name="place" placeholder="Place" required>
+			<div class="form-check">
+              <input type="radio" class="form-check-input" id="ahar" name="program" value="Ahar" required>
+              <label class="form-check-label" for="ahar">Christmas Celebration</label>
             </div>
+          </div>
 
-            <!-- Personal Information -->
-            <div class="form-section">
-              <h5>Your Personal Information</h5>
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" class="form-control" name="name" placeholder="Full Name" required>
+          <!-- Donation Amount -->
+          <div class="form-section">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" name="amount" placeholder="Amount" min="1" required>
+          </div>
 
-              <label for="email" class="form-label mt-3">Email Address</label>
-              <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+          <!-- Check and DD Details -->
+          <div class="form-section">
+            <h5>Check and Demand Draft</h5>
+            <label for="check" class="form-label">Check/DD No.</label>
+            <input type="text" class="form-control" name="check" placeholder="Check / DD No." required>
 
-              <label for="phone" class="form-label mt-3">Phone Number</label>
-              <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+            <label for="bank_name" class="form-label mt-3">Bank Name</label>
+            <input type="text" class="form-control" name="bank_name" placeholder="Bank Name" required>
 
-              <label for="address" class="form-label mt-3">Address</label>
-              <input type="text" class="form-control" name="address" placeholder="Address" required>
-            </div>
+            <label for="place" class="form-label mt-3">Place</label>
+            <input type="text" class="form-control" name="place" placeholder="Place" required>
+          </div>
 
-            <!-- Form Buttons -->
-            <div class="d-flex justify-content-between mt-4">
-              <button type="submit" name="submit_donation" class="btn submit-btn">Submit Donation</button>
-              <button type="reset" class="btn reset-btn">Reset</button>
-            </div>
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h5>Your Personal Information</h5>
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Full Name" required>
 
-          </form>
-        </div>
+            <label for="email" class="form-label mt-3">Email Address</label>
+            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+
+            <label for="phone" class="form-label mt-3">Phone Number</label>
+            <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+
+            <label for="address" class="form-label mt-3">Address</label>
+            <input type="text" class="form-control" name="address" placeholder="Address" required>
+          </div>
+
+          <!-- Form Buttons -->
+          <div class="d-flex justify-content-between mt-4">
+            <button type="submit" name="submit_donation" class="btn submit-btn w-48">Submit Donation</button>
+            <button type="reset" class="btn reset-btn w-48">Reset</button>
+          </div>
+
+        </form>
       </div>
     </div>
   </div>
